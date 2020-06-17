@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.utn.utnphonesapp.Interface.JsonUserApi;
@@ -21,9 +22,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static edu.utn.utnphonesapp.config.Constants.API_ROOT_URL;
+
 public class HomeFragment extends Fragment {
 
-    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
@@ -31,43 +34,68 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView textViewHome = view.findViewById(R.id.textViewHome);
-        getUsers(textViewHome);
+
+        List<TextView> textViewList = new ArrayList<>();
+
+        TextView tvUsername = view.findViewById(R.id.textUserTitle);
+
+        TextView tvName = view.findViewById(R.id.textValueName);
+        TextView tvLastname = view.findViewById(R.id.textValueLastname);
+        TextView tvClientNumber = view.findViewById(R.id.textValueClientNumber);
+        TextView tvDni = view.findViewById(R.id.textValueDni);
+
+        TextView tvAdress = view.findViewById(R.id.textValueAdress);
+        TextView tvCity = view.findViewById(R.id.textValueCity);
+        TextView tvProvince = view.findViewById(R.id.textValueProvince);
+
+        textViewList.add(tvUsername);
+        textViewList.add(tvName);
+        textViewList.add(tvLastname);
+        textViewList.add(tvClientNumber);
+        textViewList.add(tvDni);
+        textViewList.add(tvAdress);
+        textViewList.add(tvCity);
+        textViewList.add(tvProvince);
+
+        getUser(textViewList);
+
     }
 
-    private void getUsers(final TextView textViewHome){
+    private void getUser(final List<TextView> textViewList) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.108:8080/")
+                .baseUrl(API_ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         JsonUserApi jsonUserApi = retrofit.create(JsonUserApi.class);
 
-        Call<List<User>> call = jsonUserApi.getUser();
+        //TODO CAMBIAAR EL USERID POR EL DE LA SESION
+        Call<User> call = jsonUserApi.getUser(103);
 
-        call.enqueue(new Callback<List<User>>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                if(!response.isSuccessful()){
-                    textViewHome.setText("Codigo de respuesta: " +response.code());
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (!response.isSuccessful()) {
+                    //TODO "Codigo de respuesta: " + response.code()
+                    System.out.println("CODIGO DE RESPUESTA: " + response.code());
                     return;
                 }
-                List<User> userList = response.body();
-                for(User user : userList){
-                    String content = "";
-                    content += "idUser:" + user.getIdUser() + "\n";
-                    content += "username:" + user.getUsername() + "\n";
-                    content += "password:" + user.getPassword() + "\n";
-                    content += "dni:" + user.getDni() + "\n";
-                    content += "\n\n\n";
-                    textViewHome.append(content);
-                }
+                User user = response.body();
 
+                textViewList.get(0).setText(user.getUsername());
+                textViewList.get(1).setText(user.getName());
+                textViewList.get(2).setText(user.getLastname());
+                textViewList.get(3).setText(user.getIdUser().toString());
+                textViewList.get(4).setText(user.getDni().toString());
+                textViewList.get(5).setText(user.getAddress());
+                textViewList.get(6).setText(user.getCity().getCityName());
+                textViewList.get(7).setText(user.getCity().getProvince().getProvinceName());
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                textViewHome.setText(t.getMessage());
+            public void onFailure(Call<User> call, Throwable t) {
+                //textViewHome.setText(t.getMessage());
+                System.out.println(t.getMessage());
             }
         });
     }
