@@ -7,9 +7,24 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <!--USER FRAGMENT-->
+    <string name="card_view_title_holder">TITULAR</string>
+    <string name="card_view_title_adress">DOMICILIO</string>
+    <string name="card_view_title_user">Usuario:</string>
+
+
+    <string name="card_view_element_name">Nombre:</string>
+    <string name="card_view_element_lastname">Apellido:</string>
+    <string name="card_view_element_client">Nº de Cliente:</string>
+    <string name="card_view_element_dni">DNI:</string>
+    <string name="card_view_element_address">Dirección:</string>
+    <string name="card_view_element_city">Localidad:</string>
+    <string name="card_view_element_province">Provincia:</string>
+
+    <!--BARRA DE MENU LATERAL-->
+    <string name="menu_home">Datos Personales</string>
 
     <string name="home_second">Home Second</string>
+
+    <string name="boton_text">SOY EL BOTON</string>
 </resources>
