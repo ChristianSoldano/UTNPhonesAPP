@@ -3,6 +3,7 @@ package edu.utn.utnphonesapp;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,9 +17,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import edu.utn.utnphonesapp.model.Session;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    public static final Session session = new Session();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,4 +64,12 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    // BOTON BACK
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(this, "FUNCIONO PERRO", Toast.LENGTH_SHORT).show();
+//    }
+
+
 }
