@@ -22,7 +22,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static edu.utn.utnphonesapp.MainActivity.session;
 import static edu.utn.utnphonesapp.config.Constants.API_ROOT_URL;
+
 
 public class HomeFragment extends Fragment {
 
@@ -62,6 +64,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void getUser(final List<TextView> textViewList) {
+        session.setUserId(2);
+        session.setToken("eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIyIiwic3ViIjoiU29rZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE1OTI0MzM3ODR9.JuuZjZFVtL0gRrvl5p--F8c8EHRJtIFMatPTie0iIHdqx9sdAgMRR3yxstXE_B8yY2-8eVi4-IuBmx81pwP28w");
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -70,7 +75,7 @@ public class HomeFragment extends Fragment {
         JsonUserApi jsonUserApi = retrofit.create(JsonUserApi.class);
 
         //TODO CAMBIAAR EL USERID POR EL DE LA SESION
-        Call<User> call = jsonUserApi.getUser(103);
+        Call<User> call = jsonUserApi.getUser(session.getUserId(), session.getToken());
 
         call.enqueue(new Callback<User>() {
             @Override

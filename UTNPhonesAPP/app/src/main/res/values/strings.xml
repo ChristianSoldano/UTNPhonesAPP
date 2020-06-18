@@ -1,11 +1,18 @@
 <resources>
-    <string name="app_name">UTNPhonesAPP</string>
+    <string name="app_name">UTNPhones</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!--LOGIN-->
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">INGRESAR</string>
+    <string name="not_registered">¿No estás registrado?</string>
+    <string name="not_registered2"><u><b>REGISTRATE</b></u></string>
 
     <!--USER FRAGMENT-->
     <string name="card_view_title_holder">TITULAR</string>
@@ -27,4 +34,7 @@
     <string name="home_second">Home Second</string>
 
     <string name="boton_text">SOY EL BOTON</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
