@@ -1,19 +1,27 @@
 package edu.utn.utnphonesapp.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.utn.utnphonesapp.Interface.JsonUserApi;
+import edu.utn.utnphonesapp.Interface.JsonApi;
+import edu.utn.utnphonesapp.LoginActivity;
+import edu.utn.utnphonesapp.MainActivity;
 import edu.utn.utnphonesapp.R;
 import edu.utn.utnphonesapp.model.User;
 import retrofit2.Call;
@@ -28,80 +36,99 @@ import static edu.utn.utnphonesapp.config.Constants.API_ROOT_URL;
 
 public class HomeFragment extends Fragment {
 
+    private TextView tvName;
+    private TextView tvLastname;
+    private TextView tvClientNumber;
+    private TextView tvDni;
+    private TextView tvAdress;
+    private TextView tvCity;
+    private TextView tvProvince;
+
+    private CardView progressBar;
+    private TextView tvMenuUsername;
+    private TextView tvMenuEmail;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<TextView> textViewList = new ArrayList<>();
+        NavigationView navigationView = ((MainActivity)getActivity()).getNavigationView();
+        View headerView = navigationView.getHeaderView(0);
+        tvMenuUsername = headerView.findViewById(R.id.textViewMenuUsername);
+        tvMenuEmail = headerView.findViewById(R.id.textViewMenuEmail);
 
-        TextView tvUsername = view.findViewById(R.id.textUserTitle);
+        progressBar = view.findViewById(R.id.progressBar);
 
-        TextView tvName = view.findViewById(R.id.textValueName);
-        TextView tvLastname = view.findViewById(R.id.textValueLastname);
-        TextView tvClientNumber = view.findViewById(R.id.textValueClientNumber);
-        TextView tvDni = view.findViewById(R.id.textValueDni);
+        tvName = view.findViewById(R.id.textValueName);
+        tvLastname = view.findViewById(R.id.textValueLastname);
+        tvClientNumber = view.findViewById(R.id.textValueClientNumber);
+        tvDni = view.findViewById(R.id.textValueDni);
+        tvAdress = view.findViewById(R.id.textValueAdress);
+        tvCity = view.findViewById(R.id.textValueCity);
+        tvProvince = view.findViewById(R.id.textValueProvince);
 
-        TextView tvAdress = view.findViewById(R.id.textValueAdress);
-        TextView tvCity = view.findViewById(R.id.textValueCity);
-        TextView tvProvince = view.findViewById(R.id.textValueProvince);
-
-        textViewList.add(tvUsername);
-        textViewList.add(tvName);
-        textViewList.add(tvLastname);
-        textViewList.add(tvClientNumber);
-        textViewList.add(tvDni);
-        textViewList.add(tvAdress);
-        textViewList.add(tvCity);
-        textViewList.add(tvProvince);
-
-        getUser(textViewList);
-
+        getUser();
     }
 
-    private void getUser(final List<TextView> textViewList) {
-        session.setUserId(2);
-        session.setToken("eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIyIiwic3ViIjoiU29rZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX0NMSUVOVCJdLCJpYXQiOjE1OTI0MzM3ODR9.JuuZjZFVtL0gRrvl5p--F8c8EHRJtIFMatPTie0iIHdqx9sdAgMRR3yxstXE_B8yY2-8eVi4-IuBmx81pwP28w");
+    private void getUser() {
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        progressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        JsonUserApi jsonUserApi = retrofit.create(JsonUserApi.class);
+        JsonApi jsonApi = retrofit.create(JsonApi.class);
 
-        //TODO CAMBIAAR EL USERID POR EL DE LA SESION
-        Call<User> call = jsonUserApi.getUser(session.getUserId(), session.getToken());
+        Call<User> call = jsonApi.getUser(session.getUserId(), session.getToken());
 
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (!response.isSuccessful()) {
-                    //TODO "Codigo de respuesta: " + response.code()
-                    System.out.println("CODIGO DE RESPUESTA: " + response.code());
-                    return;
-                }
-                User user = response.body();
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                progressBar.setVisibility(View.GONE);
 
-                textViewList.get(0).setText(user.getUsername());
-                textViewList.get(1).setText(user.getName());
-                textViewList.get(2).setText(user.getLastname());
-                textViewList.get(3).setText(user.getIdUser().toString());
-                textViewList.get(4).setText(user.getDni().toString());
-                textViewList.get(5).setText(user.getAddress());
-                textViewList.get(6).setText(user.getCity().getCityName());
-                textViewList.get(7).setText(user.getCity().getProvince().getProvinceName());
+                if (!response.isSuccessful()) {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    if (response.code() == 403) {
+                        intent.putExtra("sesion_expired", "expired");
+                    }
+                    startActivity(intent);
+                    ((MainActivity) getActivity()).finish();
+                }
+
+                User user = response.body();
+                tvMenuUsername.setText(user.getUsername());
+                tvMenuEmail.setText(user.getEmail());
+
+                tvName.setText(user.getName());
+                tvLastname.setText(user.getLastname());
+                tvClientNumber.setText(user.getIdUser().toString());
+                tvDni.setText(user.getDni().toString());
+                tvAdress.setText(user.getAddress());
+                tvCity.setText(user.getCity().getCityName());
+                tvProvince.setText(user.getCity().getProvince().getProvinceName());
+
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                //textViewHome.setText(t.getMessage());
-                System.out.println(t.getMessage());
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                progressBar.setVisibility(View.GONE);
+
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.putExtra("connection_error", "connection error");
+                startActivity(intent);
+                ((MainActivity) getActivity()).finish();
             }
         });
     }
+
 }

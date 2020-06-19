@@ -1,15 +1,13 @@
-package edu.utn.utnphonesapp.model;
+package edu.utn.utnphonesapp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public final class Session {
-    private Integer userId;
+@Data
+public class LoginDto {
     private String username;
-    private String token;
+    private String password;
 }
