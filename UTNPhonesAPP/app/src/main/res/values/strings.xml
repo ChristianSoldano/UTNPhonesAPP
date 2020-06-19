@@ -11,8 +11,21 @@
     <string name="username">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">INGRESAR</string>
-    <string name="not_registered">¿No estás registrado?</string>
-    <string name="not_registered2"><u><b>REGISTRATE</b></u></string>
+    <string name="not_registered">¿Es cliente y no está registrado?</string>
+    <string name="not_registered2"><u><b>REGISTRARSE</b></u></string>
+
+    <!--REGISTER-->
+    <string name="register_title">Registro</string>
+    <string name="register_username">Nombre de Usuario</string>
+    <string name="register_password">Contraseña</string>
+    <string name="register_email">Email</string>
+    <string name="register_name">Nombre</string>
+    <string name="register_lastname">Apellido</string>
+    <string name="register_dni">DNI</string>
+    <string name="register_city">Ciudad</string>
+    <string name="register_address">Dirección</string>
+    <string name="already_registered">¿Ya está registrado?</string>
+
 
     <!--USER FRAGMENT-->
     <string name="card_view_title_holder">TITULAR</string>

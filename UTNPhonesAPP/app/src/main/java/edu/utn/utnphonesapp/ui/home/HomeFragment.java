@@ -105,12 +105,14 @@ public class HomeFragment extends Fragment {
                 }
 
                 User user = response.body();
+
                 tvMenuUsername.setText(user.getUsername());
                 tvMenuEmail.setText(user.getEmail());
 
                 tvName.setText(user.getName());
                 tvLastname.setText(user.getLastname());
-                tvClientNumber.setText(user.getIdUser().toString());
+                Integer clientNumber = 1000000 + Integer.parseInt(user.getIdUser().toString());
+                tvClientNumber.setText(clientNumber.toString());
                 tvDni.setText(user.getDni().toString());
                 tvAdress.setText(user.getAddress());
                 tvCity.setText(user.getCity().getCityName());

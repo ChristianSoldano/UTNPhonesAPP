@@ -9,11 +9,14 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import org.w3c.dom.Text;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
 import edu.utn.utnphonesapp.dto.LoginResponseDto;
@@ -123,8 +126,13 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "El servicio UTNPhones no está disponible actualmente", Toast.LENGTH_LONG).show();
                 }
             });
-
-
         }
     }
+
+    public void register_activity(View view){
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

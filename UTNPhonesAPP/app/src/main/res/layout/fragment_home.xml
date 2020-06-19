@@ -11,7 +11,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
@@ -25,11 +24,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewOwner"
                 android:layout_width="380dp"
-                android:layout_height="430dp"
-                app:cardBackgroundColor="@color/icons"
+                android:layout_height="320dp"
                 app:cardCornerRadius="9dp"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/cardbackground" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -57,6 +61,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_title_holder"
+                        android:textColor="#000000"
                         android:textSize="36sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imageViewUser"
@@ -70,9 +75,10 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_name"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textTitleOwner" />
+                        app:layout_constraintTop_toBottomOf="@+id/textValueClientNumber" />
 
                     <TextView
                         android:id="@+id/textValueName"
@@ -81,7 +87,8 @@
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +99,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_lastname"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textValueName" />
 
@@ -107,7 +115,8 @@
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleLastname" />
@@ -117,22 +126,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_client"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textValueLastname" />
+                        app:layout_constraintTop_toBottomOf="@+id/textTitleOwner" />
 
                     <TextView
                         android:id="@+id/textValueClientNumber"
-                        android:layout_width="200dp"
-                        android:layout_height="40dp"
+                        android:layout_width="340dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleId" />
@@ -145,19 +156,21 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_dni"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textValueClientNumber" />
+                        app:layout_constraintTop_toBottomOf="@+id/textValueLastname" />
 
                     <TextView
                         android:id="@+id/textValueDni"
-                        android:layout_width="200dp"
-                        android:layout_height="40dp"
+                        android:layout_width="340dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleDni" />
@@ -168,11 +181,16 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewHome"
                 android:layout_width="380dp"
-                android:layout_height="400dp"
-                app:cardBackgroundColor="@color/icons"
+                android:layout_height="260dp"
                 app:cardCornerRadius="9dp"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/cardbackground" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -186,7 +204,8 @@
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleProvince" />
@@ -196,22 +215,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_province"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textValueCity" />
 
                     <TextView
                         android:id="@+id/textValueCity"
                         android:layout_width="340dp"
-                        android:layout_height="60dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleCity" />
@@ -221,22 +242,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_city"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textValueAdress" />
 
                     <TextView
                         android:id="@+id/textValueAdress"
                         android:layout_width="340dp"
-                        android:layout_height="60dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
                         android:fontFamily="@font/montserrat"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleAdress" />
@@ -249,7 +272,8 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_element_address"
-                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textTitleHome" />
 
@@ -263,6 +287,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat"
                         android:text="@string/card_view_title_adress"
+                        android:textColor="#000000"
                         android:textSize="36sp"
                         app:layout_constraintStart_toEndOf="@+id/imageViewPin"
                         app:layout_constraintTop_toTopOf="parent" />
