@@ -6,9 +6,10 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#03DCDBDB"
     tools:context=".LoginActivity">
-
+<!--    android:background="#DCDBDB"-->
+    <!--    android:background="@drawable/background"-->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="170dp"
@@ -41,6 +42,9 @@
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +59,9 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +78,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_icon" />
+        app:srcCompat="@drawable/user_icon_black" />
 
     <ImageView
         android:id="@+id/imageViewPasswordIcon"
@@ -84,7 +91,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewUserIcon"
-        app:srcCompat="@drawable/password_icon" />
+        app:srcCompat="@drawable/password_icon_black" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -94,13 +101,13 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/colorAccent"
+        app:cardBackgroundColor="#00ddff"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword">
-
+<!--        app:cardBackgroundColor="@color/colorAccent"-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -127,6 +134,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/not_registered"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />

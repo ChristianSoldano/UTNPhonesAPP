@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#03DCDBDB"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
@@ -52,7 +52,7 @@
                     android:layout_height="40dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/user_icon" />
+                    app:srcCompat="@drawable/user_icon_black" />
 
                 <EditText
                     android:id="@+id/editTextRegisterUsername"
@@ -76,7 +76,7 @@
                     android:layout_height="40dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/password_icon" />
+                    app:srcCompat="@drawable/password_icon_black" />
 
                 <EditText
                     android:id="@+id/editTextRegisterPassword"
@@ -237,7 +237,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/colorAccent"
+                app:cardBackgroundColor="#00ddff"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +253,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="@string/login"
+                        android:text="@string/register"
                         android:textColor="@android:color/widget_edittext_dark"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -284,7 +284,7 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat"
                 android:onClick="login_activity"
-                android:text="@string/login"
+                android:text="@string/login2"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

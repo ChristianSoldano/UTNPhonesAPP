@@ -25,7 +25,8 @@
     <string name="register_city">Ciudad</string>
     <string name="register_address">Dirección</string>
     <string name="already_registered">¿Ya está registrado?</string>
-
+    <string name="login2"><u><b>INGRESAR</b></u></string>
+    <string name="register">REGISTRARSE</string>
 
     <!--USER FRAGMENT-->
     <string name="card_view_title_holder">TITULAR</string>
