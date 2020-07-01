@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/callFragment"
         android:name="edu.utn.utnphonesapp.ui.home.CallFragment"
-        android:label="fragment_call"
+        android:label="Mis LLamadas"
         tools:layout="@layout/fragment_call" />
 
 

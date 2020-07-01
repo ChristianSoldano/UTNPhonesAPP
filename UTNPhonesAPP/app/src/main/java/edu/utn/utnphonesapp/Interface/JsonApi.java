@@ -28,4 +28,6 @@ public interface JsonApi {
     @POST("/api/user/")
     Call<Void> register(@Body User user);
 
+    @GET("/api/call/{userId}")
+    Call<List<edu.utn.utnphonesapp.model.Call>> getCalls(@Path("userId") Integer userId, @Header("Authorization") String token);
 }

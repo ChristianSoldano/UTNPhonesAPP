@@ -1,128 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/cardViewHome"
+    android:layout_width="370dp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="36dp"
-    android:elevation="10dp"
-
-    app:cardCornerRadius="9dp">
+    app:cardBackgroundColor="#ffffff"
+    app:cardCornerRadius="9dp"
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="4dp"
-        android:layout_marginBottom="36dp">
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/textTitleOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_span="1"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:text="LLAMADA"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPin"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewPin"
+            android:layout_width="62dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_span="1"
+            android:contentDescription="pin_icon"
+            android:src="@drawable/calls_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/callDestinationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat"
             android:text="Destino"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPin" />
+
+        <TextView
+            android:id="@+id/callOriginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Origen"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPin" />
 
         <TextView
             android:id="@+id/callDestination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="2291-412505"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.556"
-            app:layout_constraintStart_toEndOf="@+id/callDestinationTitle"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callDestinationTitle" />
+
+        <TextView
+            android:id="@+id/callOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callOriginTitle" />
 
         <TextView
             android:id="@+id/callDateTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
             android:text="Fecha"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/callDestinationTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/callDestination" />
+
+        <TextView
+            android:id="@+id/callTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Hora"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callDestination" />
 
         <TextView
             android:id="@+id/callDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="18/05/2020"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.292"
-            app:layout_constraintStart_toEndOf="@+id/callDateTitle"
-            app:layout_constraintTop_toBottomOf="@+id/callDestination" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callDateTitle" />
+
+        <TextView
+            android:id="@+id/callTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callTimeTitle" />
 
         <TextView
             android:id="@+id/callDurationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
             android:text="Duracion"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="12sp"
             android:typeface="normal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/callDateTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/callDate" />
 
         <TextView
             android:id="@+id/callDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="25 min"
+            android:textColor="#000000"
             android:textSize="18sp"
+            android:textStyle="bold"
             android:typeface="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456"
-            app:layout_constraintStart_toEndOf="@+id/callDurationTitle"
-            app:layout_constraintTop_toBottomOf="@+id/callDate" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callDurationTitle" />
 
         <TextView
             android:id="@+id/callPriceTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
             android:text="Precio"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/callDurationTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/callTime" />
 
         <TextView
             android:id="@+id/callPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="208dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
-            android:text="$200"
+            android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.479"
-            app:layout_constraintStart_toEndOf="@+id/callPriceTitle"
-            app:layout_constraintTop_toBottomOf="@+id/callDuration" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/callPriceTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
