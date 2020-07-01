@@ -8,5 +8,9 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/user_icon"
             android:title="@string/menu_home" />
+        <item
+            android:id="@+id/phoneLineFragment"
+            android:icon="@drawable/user_icon"
+            android:title="PHONE LINE" />
     </group>
 </menu>
