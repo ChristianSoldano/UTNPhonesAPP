@@ -2,89 +2,125 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/cardViewHome"
+    android:layout_width="370dp"
     android:layout_height="wrap_content"
-    android:elevation="10dp"
+    app:cardBackgroundColor="#ffffff"
     app:cardCornerRadius="9dp"
-
-    android:layout_marginBottom="36dp">
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="4dp"
-        android:layout_marginBottom="36dp">
+        android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/phoneLineNumberTitle"
+            android:id="@+id/textValueStatus"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_span="1"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitleStatus" />
+
+        <TextView
+            android:id="@+id/textTitleStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Numero"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/phoneLineNumber"
-            app:layout_constraintHorizontal_bias="0.213"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/card_view_element_status"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.114" />
+            app:layout_constraintTop_toBottomOf="@+id/textValueType" />
 
         <TextView
-            android:id="@+id/phoneLineNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.583"
+            android:id="@+id/textValueType"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_span="1"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.104" />
+            app:layout_constraintTop_toBottomOf="@+id/textTitleType" />
 
         <TextView
-            android:id="@+id/phoneLineTypeTitle"
+            android:id="@+id/textTitleType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/phoneLineType"
-            app:layout_constraintHorizontal_bias="0.361"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/card_view_element_type"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneLineNumberTitle"
-            app:layout_constraintVertical_bias="0.311" />
+            app:layout_constraintTop_toBottomOf="@+id/textValueNumber" />
 
         <TextView
-            android:id="@+id/phoneLineType"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.583"
+            android:id="@+id/textValueNumber"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_span="1"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneLineNumber"
-            app:layout_constraintVertical_bias="0.287" />
+            app:layout_constraintTop_toBottomOf="@+id/textTitleNumber" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textTitleNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estado"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/phoneLineStatus"
-            app:layout_constraintHorizontal_bias="0.378"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/card_view_element_number"
+            android:textColor="#000000"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneLineTypeTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/textTitlePhoneLine" />
 
         <TextView
-            android:id="@+id/phoneLineStatus"
+            android:id="@+id/textTitlePhoneLine"
             android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.583"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneLineType" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_span="1"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/phone_line_card_title"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPin"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageViewPin"
+            android:layout_width="62dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_span="1"
+            android:contentDescription="pin_icon"
+            android:src="@drawable/phone_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

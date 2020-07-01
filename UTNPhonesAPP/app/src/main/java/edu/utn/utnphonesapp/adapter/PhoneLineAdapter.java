@@ -1,5 +1,6 @@
 package edu.utn.utnphonesapp.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,9 @@ public class PhoneLineAdapter extends RecyclerView.Adapter<PhoneLineAdapter.Phon
 
         public PhoneLineViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.phoneLineNumber = itemView.findViewById(R.id.phoneLineNumber);
-            this.phoneLineStatus = itemView.findViewById(R.id.phoneLineStatus);
-            this.phoneLineType = itemView.findViewById(R.id.phoneLineType);
+            this.phoneLineNumber = itemView.findViewById(R.id.textValueNumber);
+            this.phoneLineStatus = itemView.findViewById(R.id.textValueStatus);
+            this.phoneLineType = itemView.findViewById(R.id.textValueType);
         }
     }
 
@@ -46,9 +47,13 @@ public class PhoneLineAdapter extends RecyclerView.Adapter<PhoneLineAdapter.Phon
     public void onBindViewHolder(@NonNull PhoneLineViewHolder holder, int position) {
         Line line = lineList.get(position);
 
-        holder.phoneLineNumber.setText(line.getPhoneNumber());
-        holder.phoneLineStatus.setText(line.getLineStatus().name());
-        holder.phoneLineType.setText(line.getLineType().name());
+        holder.phoneLineNumber.setText(line.getCity().getPrefix() + "-" + line.getPhoneNumber());
+        holder.phoneLineStatus.setText(line.getLineStatus().name().equals("ACTIVE") ? "ACTIVA" : "INACTIVA");
+        if (line.getLineStatus().name().equals("ACTIVE"))
+            holder.phoneLineStatus.setTextColor(Color.GREEN);
+        else
+            holder.phoneLineStatus.setTextColor(Color.RED);
+        holder.phoneLineType.setText(line.getLineType().name().equals("RESIDENTIAL") ? "RESIDENCIAL" : "MOVIL");
     }
 
 

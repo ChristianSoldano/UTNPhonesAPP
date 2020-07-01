@@ -191,7 +191,7 @@
                     android:layout_marginBottom="10dp">
 
                     <TextView
-                        android:id="@+id/textValueProvince"
+                        android:id="@+id/textValueStatus"
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -202,10 +202,10 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textTitleProvince" />
+                        app:layout_constraintTop_toBottomOf="@+id/textTitleStatus" />
 
                     <TextView
-                        android:id="@+id/textTitleProvince"
+                        android:id="@+id/textTitleStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -215,10 +215,10 @@
                         android:textColor="#000000"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textValueCity" />
+                        app:layout_constraintTop_toBottomOf="@+id/textValueType" />
 
                     <TextView
-                        android:id="@+id/textValueCity"
+                        android:id="@+id/textValueType"
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -229,10 +229,10 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textTitleCity" />
+                        app:layout_constraintTop_toBottomOf="@+id/textTitleType" />
 
                     <TextView
-                        android:id="@+id/textTitleCity"
+                        android:id="@+id/textTitleType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -242,10 +242,10 @@
                         android:textColor="#000000"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textValueAdress" />
+                        app:layout_constraintTop_toBottomOf="@+id/textValueNumber" />
 
                     <TextView
-                        android:id="@+id/textValueAdress"
+                        android:id="@+id/textValueNumber"
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -256,10 +256,10 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textTitleAdress" />
+                        app:layout_constraintTop_toBottomOf="@+id/textTitleNumber" />
 
                     <TextView
-                        android:id="@+id/textTitleAdress"
+                        android:id="@+id/textTitleNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -269,10 +269,10 @@
                         android:textColor="#000000"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textTitleHome" />
+                        app:layout_constraintTop_toBottomOf="@+id/textTitlePhoneLine" />
 
                     <TextView
-                        android:id="@+id/textTitleHome"
+                        android:id="@+id/textTitlePhoneLine"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

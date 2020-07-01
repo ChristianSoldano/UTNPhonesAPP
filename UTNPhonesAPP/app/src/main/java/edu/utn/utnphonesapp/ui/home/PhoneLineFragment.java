@@ -2,16 +2,14 @@ package edu.utn.utnphonesapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,15 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
+import edu.utn.utnphonesapp.LoginActivity;
 import edu.utn.utnphonesapp.MainActivity;
 import edu.utn.utnphonesapp.R;
 import edu.utn.utnphonesapp.adapter.PhoneLineAdapter;
-import edu.utn.utnphonesapp.dto.LoginResponseDto;
-import edu.utn.utnphonesapp.model.City;
 import edu.utn.utnphonesapp.model.Line;
-import edu.utn.utnphonesapp.model.User;
-import edu.utn.utnphonesapp.model.enums.LineStatus;
-import edu.utn.utnphonesapp.model.enums.LineType;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,7 +38,7 @@ public class PhoneLineFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private List<Line> lineList;
+    private ConstraintLayout progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +52,7 @@ public class PhoneLineFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        progressBar = view.findViewById(R.id.loadingScreen);
         recyclerView = view.findViewById(R.id.phoneLineRecycleView);
         recyclerView.setHasFixedSize(true);
 
@@ -76,6 +70,8 @@ public class PhoneLineFragment extends Fragment {
 
 
     public void getLines() {
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        progressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_ROOT_URL)
@@ -90,6 +86,9 @@ public class PhoneLineFragment extends Fragment {
 
             @Override
             public void onResponse(Call<List<Line>> call, Response<List<Line>> response) {
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                progressBar.setVisibility(View.GONE);
+
                 if (response.code() == 204) {
                     adapter = new PhoneLineAdapter(new ArrayList<Line>());
                 } else
@@ -101,7 +100,12 @@ public class PhoneLineFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Line>> call, Throwable t) {
-                System.out.println("ERROR FATAL");
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                progressBar.setVisibility(View.GONE);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.putExtra("connection_error", "connection error");
+                startActivity(intent);
+                ((MainActivity) getActivity()).finish();
             }
         });
 
