@@ -18,6 +18,6 @@ public class Bill {
     private Double totalPrice;
     private Timestamp issueDate;
     private Timestamp expirationDate;
-    private BillStatus paid;
-    private Integer qtyOfCalls;
+    private BillStatus status;
+    private Integer qtyCalls;
 }

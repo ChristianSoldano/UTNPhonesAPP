@@ -20,8 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
+import edu.utn.utnphonesapp.LoginActivity;
 import edu.utn.utnphonesapp.MainActivity;
 import edu.utn.utnphonesapp.R;
+import edu.utn.utnphonesapp.adapter.BillAdapter;
 import edu.utn.utnphonesapp.adapter.PhoneLineAdapter;
 
 import edu.utn.utnphonesapp.model.Bill;
@@ -32,6 +34,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static edu.utn.utnphonesapp.MainActivity.session;
+import static edu.utn.utnphonesapp.config.Constants.API_ROOT_URL;
 
 public class BillFragment extends Fragment {
 
@@ -80,7 +83,7 @@ public class BillFragment extends Fragment {
 
         JsonApi jsonApi = retrofit.create(JsonApi.class);
 
-        Call<List<Bill>> call = jsonApi.getLines(session.getUserId(), session.getToken());
+        Call<List<Bill>> call = jsonApi.getBills(session.getUserId(), session.getToken());
 
         call.enqueue(new Callback<List<Bill>>() {
 
@@ -90,9 +93,9 @@ public class BillFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
 
                 if (response.code() == 204) {
-                    adapter = new PhoneLineAdapter(new ArrayList<Bill>());
+                    adapter = new BillAdapter(new ArrayList<Bill>());
                 } else
-                    adapter = new PhoneLineAdapter(response.body());
+                    adapter = new BillAdapter(response.body());
 
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(adapter);

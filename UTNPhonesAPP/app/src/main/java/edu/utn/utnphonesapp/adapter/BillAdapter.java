@@ -53,30 +53,26 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.BillViewHolder
     public void onBindViewHolder(@NonNull BillViewHolder holder, int position) {
         Bill bill = billList.get(position);
         String billStatus = null;
-        int billColor;
+        int billColor = 0;
         Date issuedate = new Date(bill.getIssueDate().getTime());
         Date expirationDate = new Date(bill.getIssueDate().getTime());
 
 
-        if (bill.getPaid().name().equals("PAID")){
+        if (bill.getStatus().name().equals("PAID")){
             billStatus = "PAGA";
             billColor = Color.GREEN;
-        }else if(bill.getPaid().name().equals("UNPAID")){
+        }else if(bill.getStatus().name().equals("UNPAID")){
             billStatus = "IMPAGA";
-            billColor = Color.YELLOW;
-        }else if (bill.getPaid().name().equals("EXPIRED")){
+            billColor = Color.rgb(224, 123, 57);
+        }else if (bill.getStatus().name().equals("EXPIRED")){
             billStatus = "EXPIRADA";
             billColor = Color.RED;
         }
 
-
-        holder.callDate.setText(new SimpleDateFormat("dd/MM/yyyy").format(date));
-        holder.callTime.setText(new SimpleDateFormat("HH:mm:ss").format(date));
-
         holder.billStatus.setText(billStatus);
         holder.billStatus.setTextColor(billColor);
-        holder.billQtyOfCalls.setText(bill.getQtyOfCalls().toString());
-        holder.billLine.setText(bill.getLine().getCity().getPrefix + "-" + bill.getLine().getPhoneNumber());
+        holder.billQtyOfCalls.setText(bill.getQtyCalls().toString());
+        holder.billLine.setText(bill.getLine().getCity().getPrefix() + "-" + bill.getLine().getPhoneNumber());
         holder.billIssueDate.setText(new SimpleDateFormat("dd/MM/yyyy").format(issuedate));
         holder.billIssueDate.setText(new SimpleDateFormat("dd/MM/yyyy").format(expirationDate));
 
