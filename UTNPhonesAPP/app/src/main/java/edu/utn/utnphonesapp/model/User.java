@@ -5,13 +5,14 @@ import java.util.List;
 import edu.utn.utnphonesapp.model.enums.UserRole;
 import edu.utn.utnphonesapp.model.enums.UserStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
 public class User {
 
     private Integer idUser;

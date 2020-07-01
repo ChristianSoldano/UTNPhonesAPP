@@ -8,8 +8,10 @@
     android:layout_height="match_parent"
     android:background="#03DCDBDB"
     tools:context=".LoginActivity">
-<!--    android:background="#DCDBDB"-->
+    <!--    android:background="#DCDBDB"-->
     <!--    android:background="@drawable/background"-->
+
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="170dp"
@@ -107,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword">
-<!--        app:cardBackgroundColor="@color/colorAccent"-->
+        <!--        app:cardBackgroundColor="@color/colorAccent"-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -152,30 +154,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNotRegistered" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/progressBar"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:elevation="20dp"
         android:visibility="invisible"
-        app:cardBackgroundColor="#C5000000"
-        app:cardElevation="10dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-                android:layout_width="104dp"
-                android:layout_height="115dp"
-                android:indeterminateDrawable="@drawable/progressbar_style"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="104dp"
+            android:layout_height="115dp"
+            android:indeterminateDrawable="@drawable/progressbar_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

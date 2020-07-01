@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03DCDBDB"
+    android:background="#fafafa"
     tools:context=".ui.home.HomeFragment">
 
 
@@ -21,25 +21,22 @@
             android:gravity="center"
             android:orientation="vertical">
 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewOwner"
                 android:layout_width="370dp"
-                android:layout_height="350dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                app:cardBackgroundColor="#00ddff"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="9dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/cardbackground" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp">
 
                     <ImageView
                         android:id="@+id/imageViewUser"
@@ -83,7 +80,7 @@
                     <TextView
                         android:id="@+id/textValueName"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -110,7 +107,7 @@
                     <TextView
                         android:id="@+id/textValueLastname"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -137,7 +134,7 @@
                     <TextView
                         android:id="@+id/textValueClientNumber"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -164,7 +161,7 @@
                     <TextView
                         android:id="@+id/textValueDni"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -181,27 +178,22 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewHome"
                 android:layout_width="370dp"
-                android:layout_height="290dp"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                app:cardBackgroundColor="#00ddff"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="9dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/cardbackground" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:id="@+id/textValueProvince"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -228,7 +220,7 @@
                     <TextView
                         android:id="@+id/textValueCity"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -255,7 +247,7 @@
                     <TextView
                         android:id="@+id/textValueAdress"
                         android:layout_width="320dp"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_span="1"
@@ -309,29 +301,28 @@
         </LinearLayout>
     </ScrollView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/progressBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:elevation="20dp"
         android:visibility="invisible"
-        app:cardBackgroundColor="#C5000000"
-        app:cardElevation="10dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-                android:layout_width="104dp"
-                android:layout_height="115dp"
-                android:indeterminateDrawable="@drawable/progressbar_style"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="104dp"
+            android:layout_height="115dp"
+            android:indeterminateDrawable="@drawable/progressbar_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

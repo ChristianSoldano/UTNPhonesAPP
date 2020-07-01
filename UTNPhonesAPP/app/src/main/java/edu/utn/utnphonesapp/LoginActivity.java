@@ -9,14 +9,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import org.w3c.dom.Text;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
 import edu.utn.utnphonesapp.dto.LoginResponseDto;
@@ -34,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private CardView cardLogin;
     private EditText editTextUsername;
     private EditText editTextPassword;
-    private CardView progressBar;
+    private ConstraintLayout progressBar;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -55,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         cardLogin = findViewById(R.id.cardView);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.loadingScreen);
 
         cardLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
 
                     if (!response.isSuccessful()) {
-                        if (response.code() == 403) {
+                        if (response.code() == 403 || response.code() == 404) {
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {

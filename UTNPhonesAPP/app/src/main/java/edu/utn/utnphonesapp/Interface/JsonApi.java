@@ -1,9 +1,10 @@
 package edu.utn.utnphonesapp.Interface;
 
-import edu.utn.utnphonesapp.dto.LoginDto;
+import java.util.List;
+
 import edu.utn.utnphonesapp.dto.LoginResponseDto;
+import edu.utn.utnphonesapp.model.City;
 import edu.utn.utnphonesapp.model.User;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -20,4 +21,11 @@ public interface JsonApi {
     @FormUrlEncoded
     @POST("/api/user/login")
     Call<LoginResponseDto> login(@Field("username") String username, @Field("password") String password);
+
+    @GET("api/city/")
+    Call<List<City>> getCities();
+
+    @POST("/api/user/")
+    Call<Void> register(@Body User user);
+
 }

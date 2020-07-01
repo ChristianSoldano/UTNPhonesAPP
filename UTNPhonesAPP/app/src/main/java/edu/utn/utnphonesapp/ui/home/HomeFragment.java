@@ -7,17 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
 import edu.utn.utnphonesapp.LoginActivity;
@@ -44,7 +40,7 @@ public class HomeFragment extends Fragment {
     private TextView tvCity;
     private TextView tvProvince;
 
-    private CardView progressBar;
+    private ConstraintLayout progressBar;
     private TextView tvMenuUsername;
     private TextView tvMenuEmail;
 
@@ -63,7 +59,7 @@ public class HomeFragment extends Fragment {
         tvMenuUsername = headerView.findViewById(R.id.textViewMenuUsername);
         tvMenuEmail = headerView.findViewById(R.id.textViewMenuEmail);
 
-        progressBar = view.findViewById(R.id.progressBar);
+        progressBar = view.findViewById(R.id.loadingScreen);
 
         tvName = view.findViewById(R.id.textValueName);
         tvLastname = view.findViewById(R.id.textValueLastname);
