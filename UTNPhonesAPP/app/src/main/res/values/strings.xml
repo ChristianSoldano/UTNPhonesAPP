@@ -33,7 +33,6 @@
     <string name="card_view_title_adress">DOMICILIO</string>
     <string name="card_view_title_user">Usuario:</string>
 
-
     <string name="card_view_element_name">Nombre:</string>
     <string name="card_view_element_lastname">Apellido:</string>
     <string name="card_view_element_client">Nº de Cliente:</string>
@@ -42,13 +41,18 @@
     <string name="card_view_element_city">Localidad:</string>
     <string name="card_view_element_province">Provincia:</string>
 
+    <!--PHONE LINES FRAGMENT-->
+    <string name="phone_line_card_title">LINEA</string>
+    <string name="card_view_element_number">Número</string>
+    <string name="card_view_element_type">Tipo</string>
+    <string name="card_view_element_status">Estado</string>
+
     <!--BARRA DE MENU LATERAL-->
     <string name="menu_home">Datos Personales</string>
+    <string name="menu_phone_lines">Mis Lineas de Teléfono</string>
 
     <string name="home_second">Home Second</string>
 
-    <string name="boton_text">SOY EL BOTON</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

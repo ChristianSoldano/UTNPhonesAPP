@@ -12,6 +12,11 @@
         tools:layout="@layout/fragment_home">
 
     </fragment>
+    <fragment
+        android:id="@+id/phoneLineFragment"
+        android:name="edu.utn.utnphonesapp.ui.home.PhoneLineFragment"
+        android:label="@string/menu_phone_lines"
+        tools:layout="@layout/fragment_phone_line" />
 
 
 </navigation>

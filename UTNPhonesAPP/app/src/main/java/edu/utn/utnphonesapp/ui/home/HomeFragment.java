@@ -65,9 +65,9 @@ public class HomeFragment extends Fragment {
         tvLastname = view.findViewById(R.id.textValueLastname);
         tvClientNumber = view.findViewById(R.id.textValueClientNumber);
         tvDni = view.findViewById(R.id.textValueDni);
-        tvAdress = view.findViewById(R.id.textValueAdress);
-        tvCity = view.findViewById(R.id.textValueCity);
-        tvProvince = view.findViewById(R.id.textValueProvince);
+        tvAdress = view.findViewById(R.id.textValueNumber);
+        tvCity = view.findViewById(R.id.textValueType);
+        tvProvince = view.findViewById(R.id.textValueStatus);
 
         getUser();
     }

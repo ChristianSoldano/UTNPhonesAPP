@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.utn.utnphonesapp.dto.LoginResponseDto;
 import edu.utn.utnphonesapp.model.City;
+import edu.utn.utnphonesapp.model.Line;
 import edu.utn.utnphonesapp.model.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -27,5 +28,8 @@ public interface JsonApi {
 
     @POST("/api/user/")
     Call<Void> register(@Body User user);
+
+    @GET("/api/line/user/{userId}")
+    Call<List<Line>> getLines(@Path("userId") Integer userId, @Header("Authorization") String token);
 
 }
