@@ -2,6 +2,7 @@ package edu.utn.utnphonesapp.model;
 
 import java.sql.Timestamp;
 
+import edu.utn.utnphonesapp.model.enums.BillStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,6 @@ public class Bill {
     private Double totalPrice;
     private Timestamp issueDate;
     private Timestamp expirationDate;
-    private Boolean paid;
+    private BillStatus status;
+    private Integer qtyCalls;
 }

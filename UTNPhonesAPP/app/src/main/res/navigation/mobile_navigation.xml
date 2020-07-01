@@ -22,6 +22,11 @@
         android:name="edu.utn.utnphonesapp.ui.home.CallFragment"
         android:label="Mis LLamadas"
         tools:layout="@layout/fragment_call" />
+    <fragment
+        android:id="@+id/billsFragment"
+        android:name="edu.utn.utnphonesapp.ui.home.BillFragment"
+        android:label="Mis Facturas"
+        tools:layout="@layout/fragment_bills" />
 
 
 </navigation>

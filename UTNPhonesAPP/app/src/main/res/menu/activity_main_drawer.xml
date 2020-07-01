@@ -17,5 +17,9 @@
             android:id="@+id/callFragment"
             android:icon="@drawable/calls_icon"
             android:title="@string/menu_calls" />
+        <item
+            android:id="@+id/billsFragment"
+            android:icon="@drawable/invoice_icon"
+            android:title="@string/menu_phone_lines" />
     </group>
 </menu>

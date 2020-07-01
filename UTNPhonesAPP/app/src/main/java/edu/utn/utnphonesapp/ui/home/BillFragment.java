@@ -2,10 +2,6 @@ package edu.utn.utnphonesapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,16 +10,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.utn.utnphonesapp.Interface.JsonApi;
-
 import edu.utn.utnphonesapp.LoginActivity;
 import edu.utn.utnphonesapp.MainActivity;
 import edu.utn.utnphonesapp.R;
+import edu.utn.utnphonesapp.adapter.BillAdapter;
 import edu.utn.utnphonesapp.adapter.PhoneLineAdapter;
-import edu.utn.utnphonesapp.model.Line;
+
+import edu.utn.utnphonesapp.model.Bill;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,14 +36,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static edu.utn.utnphonesapp.MainActivity.session;
 import static edu.utn.utnphonesapp.config.Constants.API_ROOT_URL;
 
-
-public class PhoneLineFragment extends Fragment {
+public class BillFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ConstraintLayout progressBar;
-    private ConstraintLayout noContent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,10 +58,10 @@ public class PhoneLineFragment extends Fragment {
         progressBar = view.findViewById(R.id.loadingScreen);
         recyclerView = view.findViewById(R.id.phoneLineRecycleView);
         recyclerView.setHasFixedSize(true);
-        noContent = view.findViewById(R.id.noContent);
+
         layoutManager = new LinearLayoutManager(getContext());
 
-        getLines();
+        getBills();
     }
 
     @Override
@@ -71,7 +72,7 @@ public class PhoneLineFragment extends Fragment {
     }
 
 
-    public void getLines() {
+    public void getBills() {
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         progressBar.setVisibility(View.VISIBLE);
 
@@ -82,27 +83,26 @@ public class PhoneLineFragment extends Fragment {
 
         JsonApi jsonApi = retrofit.create(JsonApi.class);
 
-        Call<List<Line>> call = jsonApi.getLines(session.getUserId(), session.getToken());
+        Call<List<Bill>> call = jsonApi.getBills(session.getUserId(), session.getToken());
 
-        call.enqueue(new Callback<List<Line>>() {
+        call.enqueue(new Callback<List<Bill>>() {
 
             @Override
-            public void onResponse(Call<List<Line>> call, Response<List<Line>> response) {
+            public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 progressBar.setVisibility(View.GONE);
 
                 if (response.code() == 204) {
-                    adapter = new PhoneLineAdapter(new ArrayList<Line>());
-                    noContent.setVisibility(View.VISIBLE);
+                    adapter = new BillAdapter(new ArrayList<Bill>());
                 } else
-                    adapter = new PhoneLineAdapter(response.body());
+                    adapter = new BillAdapter(response.body());
 
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<List<Line>> call, Throwable t) {
+            public void onFailure(Call<List<Bill>> call, Throwable t) {
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 progressBar.setVisibility(View.GONE);
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
@@ -113,5 +113,4 @@ public class PhoneLineFragment extends Fragment {
         });
 
     }
-
 }

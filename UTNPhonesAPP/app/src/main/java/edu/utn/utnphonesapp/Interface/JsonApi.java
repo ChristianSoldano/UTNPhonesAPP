@@ -34,4 +34,8 @@ public interface JsonApi {
 
     @GET("/api/call/{userId}")
     Call<List<edu.utn.utnphonesapp.model.Call>> getCalls(@Path("userId") Integer userId, @Header("Authorization") String token);
+
+    @GET("/api/bill/{userId}")
+    Call<List<Bill>> getBills(@Path("userId") Integer userId, @Header("Authorization") String token);
+
 }
