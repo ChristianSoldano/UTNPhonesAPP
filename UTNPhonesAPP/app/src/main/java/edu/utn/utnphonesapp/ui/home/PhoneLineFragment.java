@@ -39,6 +39,7 @@ public class PhoneLineFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ConstraintLayout progressBar;
+    private ConstraintLayout noContent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class PhoneLineFragment extends Fragment {
         progressBar = view.findViewById(R.id.loadingScreen);
         recyclerView = view.findViewById(R.id.phoneLineRecycleView);
         recyclerView.setHasFixedSize(true);
-
+        noContent = view.findViewById(R.id.noContent);
         layoutManager = new LinearLayoutManager(getContext());
 
         getLines();
@@ -91,6 +92,7 @@ public class PhoneLineFragment extends Fragment {
 
                 if (response.code() == 204) {
                     adapter = new PhoneLineAdapter(new ArrayList<Line>());
+                    noContent.setVisibility(View.VISIBLE);
                 } else
                     adapter = new PhoneLineAdapter(response.body());
 

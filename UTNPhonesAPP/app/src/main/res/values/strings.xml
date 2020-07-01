@@ -50,6 +50,7 @@
     <!--BARRA DE MENU LATERAL-->
     <string name="menu_home">Datos Personales</string>
     <string name="menu_phone_lines">Mis Lineas de Teléfono</string>
+    <string name="menu_calls">Mis Llamadas</string>
 
     <string name="home_second">Home Second</string>
 
