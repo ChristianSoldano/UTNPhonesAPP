@@ -17,6 +17,11 @@
         android:name="edu.utn.utnphonesapp.ui.home.PhoneLineFragment"
         android:label="@string/menu_phone_lines"
         tools:layout="@layout/fragment_phone_line" />
+    <fragment
+        android:id="@+id/bills"
+        android:name="edu.utn.utnphonesapp.ui.home.BillFragment"
+        android:label="fragment_bills"
+        tools:layout="@layout/fragment_bills" />
 
 
 </navigation>

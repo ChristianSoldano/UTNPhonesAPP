@@ -3,6 +3,7 @@ package edu.utn.utnphonesapp.Interface;
 import java.util.List;
 
 import edu.utn.utnphonesapp.dto.LoginResponseDto;
+import edu.utn.utnphonesapp.model.Bill;
 import edu.utn.utnphonesapp.model.City;
 import edu.utn.utnphonesapp.model.Line;
 import edu.utn.utnphonesapp.model.User;
@@ -31,5 +32,8 @@ public interface JsonApi {
 
     @GET("/api/line/user/{userId}")
     Call<List<Line>> getLines(@Path("userId") Integer userId, @Header("Authorization") String token);
+
+    @GET("/api/bill/{userId}")
+    Call<List<Bill>> getBills(@Path("userId") Integer userId, @Header("Authorization") String token);
 
 }
