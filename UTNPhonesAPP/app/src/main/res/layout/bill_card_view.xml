@@ -16,7 +16,7 @@
         android:layout_marginBottom="10dp">
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/imageView15"
             android:layout_width="60dp"
             android:layout_height="45dp"
             android:layout_marginStart="32dp"
@@ -35,7 +35,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColorHint="#000000"
             android:textSize="30sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
+            app:layout_constraintStart_toEndOf="@+id/imageView15"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:textColorHint="#000000"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
         <TextView
             android:id="@+id/billLine"

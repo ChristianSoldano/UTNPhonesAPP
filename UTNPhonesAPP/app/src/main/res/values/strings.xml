@@ -47,6 +47,8 @@
     <string name="card_view_element_type">Tipo</string>
     <string name="card_view_element_status">Estado</string>
 
+    <!--BILLS FRAGMENT-->
+    <string name="no_content_bills">No se encontraron facturas</string>
     <!--BARRA DE MENU LATERAL-->
     <string name="menu_home">Datos Personales</string>
     <string name="menu_phone_lines">Mis Lineas de Teléfono</string>
